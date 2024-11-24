@@ -136,7 +136,7 @@
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="<?= BASE_URL ?>?role=admin&act=login">
+                                    <a class="sidebar-link sidebar-title link-nav" href="<?= BASE_URL ?>?role=admin&act=logout">
                                         <i class="ri-logout-box-line"></i>
                                         <span>Logout</span>
                                     </a>
