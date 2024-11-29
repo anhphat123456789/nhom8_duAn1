@@ -2,7 +2,7 @@
 
 class LoginController {
     public function login() {
-        include 'app/Views/Admin/layout/login.php';
+        include 'app/Views/Admin/login.php';
     }
     public function postLogin() {
         // $_POST['name']

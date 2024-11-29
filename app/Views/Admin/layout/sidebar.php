@@ -29,7 +29,7 @@
                                 <li class="back-btn"></li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="index.html">
+                                    <a class="sidebar-link sidebar-title link-nav" href="<?= BASE_URL ?>?role=admin&act=home">
                                         <i class="ri-home-line"></i>
                                         <span>Dashboard</span>
                                     </a>
@@ -90,10 +90,10 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="all-users.html">All users</a>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=all-user">All users</a>
                                         </li>
                                         <li>
-                                            <a href="add-new-user.html">Add new user</a>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=add-user">Add new user</a>
                                         </li>
                                         <li>
                                             <a href="<?= BASE_URL ?>?role=admin&act=login">Login</a>

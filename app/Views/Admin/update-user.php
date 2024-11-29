@@ -82,9 +82,67 @@
             <div class="page-body">
                 <div class="container-fluid">
                     <div class="row">
-                
+
                         <div class="card card-table">
-                            Dashboard
+                            <div class="card-body">
+                                <?php 
+                                if (isset($_SESSION['message'])) {
+                                    echo "<p>" . $_SESSION['message'] . "</P>";
+                                }
+                                if (isset($_SESSION['error'])) {
+                                    echo "<p>" . $_SESSION['error'] . "</P>";
+                                }
+                                ?>
+                            <div class="title-header option-title d-sm-flex d-block">
+                                <h5>Chỉnh sửa user</h5>
+                            </div>
+                            <form action="<?= BASE_URL ?>?role=admin&act=update-post-user&id=<?= $_GET['id'] ?>" method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" placeholder="Name" name="name" class="form-control" value="<?= $user->name ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" placeholder="Email" name="email" class="form-control" value="<?= $user->email ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" placeholder="Password" name="password" class="form-control" value="<?= $user->password ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address">Address</label>
+                                    <input type="text" id="address" placeholder="Address" name="address" class="form-control" value="<?= $user->address ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone">Phone</label>
+                                    <input type="phone" id="phone" placeholder="Phone" name="phone" class="form-control" value="<?= $user->phone ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image">Image</label>
+                                    <img src="value= <?= $user->image ?>" alt="">
+                                    <input type="file" id="image" name="image" accept="image/*" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="role">Role</label>
+                                    <select name="role" id="role" class="form-control">
+                                        <option value="" hidden>Select role</option>
+                                        <option value="1"
+                                            <?php if ($user->role == "1") {
+                                                echo "selected";
+                                            } ?>>
+                                            Admin
+                                        </option>
+                                        <option value="2"
+                                            <?php if ($user->role == "2") {
+                                                echo "selected";
+                                            } ?>>
+                                            User
+                                        </option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-warning">Chỉnh sửa</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
