@@ -82,9 +82,96 @@
             <div class="page-body">
                 <div class="container-fluid">
                     <div class="row">
-                
+
                         <div class="card card-table">
-                            Dashboard
+                            <div class="card-body">
+                                <?php if (isset($_SESSION['message'])) {
+                                    echo "<h4 style=color:red>" . $_SESSION['message'] . "</h4>";
+                                    unset($_SESSION['message']);
+                                }
+                                ?>
+                                <div class="title-header option-title d-sm-flex d-block">
+                                    <h5>Products List</h5>
+                                    <div class="right-options">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)">import</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">Export</a>
+                                            </li>
+                                            <li>
+                                                <a class="btn btn-solid" href="<?= BASE_URL ?>?role=admin&act=add-user">Add Product</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="table-responsive">
+                                        <div id="table_id_wrapper" class="dataTables_wrapper no-footer">
+                                            <div id="table_id_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="table_id"></label></div>
+                                            <table class="table all-package theme-table table-product dataTable no-footer" id="table_id">
+
+
+                                                <thead>
+                                                    <tr>
+
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">STT</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Name</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Image</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Email</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Action</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <?php foreach ($listUser as $key => $value) : ?>
+                                                    <tbody>
+
+
+                                                        <tr class="odd">
+
+                                                            <td><?= $key + 1 ?></td>
+                                                            <td><?= $value->name ?></td>
+                                                            <td>
+                                                                <img src="<?= $value->image ?>" width="50px" alt="">
+                                                            </td>
+                                                            <td><?= $value->email ?></td>
+
+                                                            <td>
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-user&id=<?= $value->id ?>">
+                                                                            <i class="ri-eye-line"></i>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="javascript:void(0)">
+                                                                            <a href="<?= BASE_URL ?>?role=admin&act=update-user&id=<?= $value->id ?>">
+                                                                                <i class="ri-pencil-line"></i>
+                                                                            </a>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-user&id=<?= $value->id ?>">
+                                                                                <i class="ri-delete-bin-line"></i>
+                                                                            </a>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                <?php endforeach; ?>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

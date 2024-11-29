@@ -82,9 +82,59 @@
             <div class="page-body">
                 <div class="container-fluid">
                     <div class="row">
-                
+
                         <div class="card card-table">
-                            Dashboard
+                            <div class="card-body">
+
+                            <div class="title-header option-title d-sm-flex d-block">
+                                <h5>Chi tiết user</h5>
+                            </div>
+                            <form action="#" >
+                                <div class="mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" placeholder="Name" name="name" class="form-control" value="<?= $user->name ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" placeholder="Email" name="email" class="form-control" value="<?= $user->email ?>" readonly>
+                                </div>
+                           
+                                <div class="mb-3">
+                                    <label for="address">Address</label>
+                                    <input type="text" id="address" placeholder="Address" name="address" class="form-control" value="<?= $user->address ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone">Phone</label>
+                                    <input type="phone" id="phone" placeholder="Phone" name="phone" class="form-control" value="<?= $user->phone ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image">Image</label>
+                                    <img src="value= <?= $user->image ?>" alt="">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="role">Role</label>
+                                    <select name="role" id="role" class="form-control" readonly>
+                                        <option value="" hidden>Select role</option>
+                                        <option value="1"
+                                            <?php if ($user->role == "1") {
+                                                echo "selected";
+                                            } ?>>
+                                            Admin
+                                        </option>
+                                        <option value="2"
+                                            <?php if ($user->role == "2") {
+                                                echo "selected";
+                                            } ?>>
+                                            User
+                                        </option>
+                                    </select>
+                                </div>
+                              
+                            </form>
+                            <a href="<?= BASE_URL ?>?role=admin&act=all-user">
+                                <button class="btn btn-warning">Quay lại</button>
+                            </a>
+
                         </div>
                     </div>
                 </div>

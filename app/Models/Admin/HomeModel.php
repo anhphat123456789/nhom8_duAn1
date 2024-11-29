@@ -5,12 +5,7 @@ class HomeModel{
         $this->db = new Database();
     }
 
-    public function getUser() {
-        $sql = "select * from users ";
-        $query = $this->db->pdo->query($sql); 
-        $result = $query->fetchAll();
-        return $result;
-    }
+   
     public function checkLogin() {
         $email = $_POST['email'];
         $password = $_POST['password'];
