@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="image">Image</label>
-                                    <img src="value= <?= $user->image ?>" alt="">
+                                    <img src=" <?= $user->image ?>" alt="" width="100px">
                                 </div>
                                 <div class="mb-3">
                                     <label for="role">Role</label>
