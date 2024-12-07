@@ -82,8 +82,8 @@
             <div class="page-body">
                 <div class="container-fluid">
                     <div class="row">
-
-                        <div class="card card-table">
+                
+                    <div class="card card-table">
                             <div class="card-body">
                                 <?php if (isset($_SESSION['message'])) {
                                     echo "<h4 style=color:red>" . $_SESSION['message'] . "</h4>";
@@ -91,7 +91,7 @@
                                 }
                                 ?>
                                 <div class="title-header option-title d-sm-flex d-block">
-                                    <h5>Danh sách user</h5>
+                                    <h5>Danh sách danh mục sản phẩm</h5>
                                     <div class="right-options">
                                         <ul>
                                             <li>
@@ -101,7 +101,7 @@
                                                 <a href="javascript:void(0)">Export</a>
                                             </li>
                                             <li>
-                                                <a class="btn btn-solid" href="<?= BASE_URL ?>?role=admin&act=add-user">Add Product</a>
+                                                <a class="btn btn-solid" href="<?= BASE_URL ?>?role=admin&act=add-category">Add Category</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -118,13 +118,11 @@
 
                                                         <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">STT</th>
                                                         <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Name</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Image</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Email</th>
                                                         <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Action</th>
 
                                                     </tr>
                                                 </thead>
-                                                <?php foreach ($listUser as $key => $value) : ?>
+                                                <?php foreach ($listCategory as $key => $value) : ?>
                                                     <tbody>
 
 
@@ -132,22 +130,18 @@
 
                                                             <td><?= $key + 1 ?></td>
                                                             <td><?= $value->name ?></td>
-                                                            <td>
-                                                                <img src="<?= $value->image ?>" width="50px" alt="">
-                                                            </td>
-                                                            <td><?= $value->email ?></td>
 
                                                             <td>
                                                                 <ul>
                                                                     <li>
-                                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-user&id=<?= $value->id ?>">
+                                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-category&id=<?= $value->id ?>">
                                                                             <i class="ri-eye-line"></i>
                                                                         </a>
                                                                     </li>
 
                                                                     <li>
                                                                         <a href="javascript:void(0)">
-                                                                            <a href="<?= BASE_URL ?>?role=admin&act=update-user&id=<?= $value->id ?>">
+                                                                            <a href="<?= BASE_URL ?>?role=admin&act=update-category&id=<?= $value->id ?>">
                                                                                 <i class="ri-pencil-line"></i>
                                                                             </a>
                                                                         </a>
@@ -155,7 +149,7 @@
 
                                                                     <li>
                                                                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-user&id=<?= $value->id ?>">
+                                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-category&id=<?= $value->id ?>">
                                                                                 <i class="ri-delete-bin-line"></i>
                                                                             </a>
                                                                         </a>

@@ -3,7 +3,8 @@
                 <div>
                     <div class="logo-wrapper logo-wrapper-center">
                         <a href="index.html" data-bs-original-title="" title="">
-                            <img class="img-fluid for-white" src="assets/Admin/images/logo/full-white.png" height="50px" alt="logo">
+                            <!-- <img class="img-fluid for-white" src="assets/Admin/images/logo/full-white.png" height="50px" alt="logo"> -->
+                             <h2 class="text-white">Fsport</h2>
                         </a>
                         <div class="back-btn">
                             <i class="fa fa-angle-left"></i>
@@ -58,11 +59,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="category.html">Category List</a>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=all-category">Category List</a>
                                         </li>
 
                                         <li>
-                                            <a href="add-new-category.html">Add New Category</a>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=add-category">Add New Category</a>
                                         </li>
                                     </ul>
                                 </li>

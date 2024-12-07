@@ -85,56 +85,24 @@
 
                         <div class="card card-table">
                             <div class="card-body">
-                                <?php
-                                if (isset($_SESSION['message'])) {
-                                    echo "<h4 style=color:red>" . $_SESSION['message'] . "</h4>";
-                                    unset($_SESSION['message']);
-                                }
-                                if (isset($_SESSION['error'])) {
-                                    echo "<h4 style=color:red>" . $_SESSION['error'] . "</h4>";
-                                    unset($_SESSION['error']);
-                                }
-                             
-
-                                
-                                ?>
+                            <?php if(isset($_SESSION['message'])){
+                                            echo "<p>".$_SESSION['message']."</p>";
+                                            unset($_SESSION['message']);
+                                        }
+                                        if (isset($_SESSION['error'])) {
+                                            echo "<h4 style=color:red>" . $_SESSION['error'] . "</h4>";
+                                            unset($_SESSION['error']);
+                                        }
+                                         ?>
                                 <div class="title-header option-title d-sm-flex d-block">
-                                    <h5>Thêm mới user</h5>
+                                    <h5>Add Category</h5>
                                 </div>
-                                <form action="<?= BASE_URL ?>?role=admin&act=post-add-user" method="post" enctype="multipart/form-data">
+                                <form action="<?= BASE_URL ?>?role=admin&act=add-post-category" method="post" enctype="multipart/form-data">
                                     <div class="mb-3">
                                         <label for="name">Name</label>
                                         <input type="text" id="name" placeholder="Name" name="name"  class="form-control">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" placeholder="Email" name="email" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="password">Password</label>
-                                        <input type="password" id="password" placeholder="Password" name="password" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="address">Address</label>
-                                        <input type="text" id="address" placeholder="Address" name="address" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="phone">Phone</label>
-                                        <input type="phone" id="phone" placeholder="Phone" name="phone" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="image">Image</label>
-                                        <input type="file" id="image" name="image" accept="image/*" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="role">Role</label>
-                                        <select name="role" id="role" class="form-control">
-                                            <option value="" hidden>Select role</option>
-                                            <option value="1">Admin</option>
-                                            <option value="2">User</option>
-                                        </select>
-                                    </div>
-                                    <button class="btn btn-success">Thêm mới</button>
+                                    <button class="btn btn-success" type="submit">Thêm mới</button>
                                 </form>
 
                             </div>

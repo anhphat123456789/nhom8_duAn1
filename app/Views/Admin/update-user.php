@@ -15,7 +15,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="assets/Admin/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="assets/Admin/images/favicon.png" type="image/x-icon">
-    <title>Fastkart - Dashboard</title>
+    <title>Fsport</title>
 
     <!-- Google font-->
     <link
