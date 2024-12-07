@@ -66,6 +66,41 @@ if($role == "user") {
             $userController->showUser();
             break;
         }
+        case 'all-category': {
+            $CategoryController = new CategoryController();
+            $CategoryController->getAllCategory();
+            break;
+        }
+        case 'add-category': {
+            $categoryController = new CategoryController();
+            $categoryController->addCategory();
+            break;
+        }
+        case 'add-post-category': {
+            $categoryController = new CategoryController();
+            $categoryController->addPostCategory();
+            break;
+        }
+        case 'delete-category': {
+            $categoryController = new CategoryController();
+            $categoryController->deleteCategory();
+            break;
+        }
+        case 'update-category': {
+            $categoryController = new CategoryController();
+            $categoryController->updateCategory();
+            break;
+        }
+        case 'update-post-category': {
+            $categoryController = new CategoryController();
+            $categoryController->updatePostCategory();
+            break;
+        }
+        case 'show-category': {
+            $categoryController = new CategoryController();
+            $categoryController->showCategory();
+            break;
+        }
         case 'product' : {
             break;
         }
