@@ -7,11 +7,11 @@ class UserController
         $userModel = new UserModel();
         $listUser = $userModel->getAllData();
 
-        include 'app/Views/Admin/User.php';
+        include 'app/Views/Admin/User-admin/User.php';
     }
     public function addUser()
     {
-        include 'app/Views/Admin/add-user.php';
+        include 'app/Views/Admin/User-admin/add-user.php';
     }
 
     public function checkValidate() {
@@ -47,7 +47,7 @@ class UserController
             }
     
             // Thêm ảnh
-            $uploadDir  = 'assets/Admin/upload/';
+            $uploadDir  = 'assets/Admin/upload/user-admin/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
             $desPath = "";
             if (!empty($_FILES['image']['name'])) {
@@ -93,7 +93,7 @@ class UserController
             header("location: " . BASE_URL . "?role=admin&act=all-user" );
             exit;
         }
-        include 'app/Views/Admin/update-user.php';
+        include 'app/Views/Admin/User-admin/update-user.php';
     }
 
     public function updatePostUser() {
@@ -114,7 +114,7 @@ class UserController
             }
             
             // Xử lý ảnh
-            $uploadDir = 'assets/Admin/upload/';
+            $uploadDir = 'assets/Admin/upload/user-admin/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
             $destPath = $user->image; // Giữ ảnh cũ nếu không có ảnh mới
             if (!empty($_FILES['image']['name'])) {
@@ -185,6 +185,6 @@ class UserController
         $userModel = new UserModel();
         $user = $userModel->getUserByID();
 
-        include 'app/Views/Admin/show-user.php';
+        include 'app/Views/Admin/User-admin/show-user.php';
     }
 }
