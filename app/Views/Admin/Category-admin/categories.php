@@ -149,7 +149,9 @@
 
                                                                     <li>
                                                                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-category&id=<?= $value->id ?>">
+                                                                            <a 
+                                                                            onclick="return confirm('bạn có muốn xóa không')"
+                                                                            href="<?= BASE_URL ?>?role=admin&act=delete-category&id=<?= $value->id ?>">
                                                                                 <i class="ri-delete-bin-line"></i>
                                                                             </a>
                                                                         </a>

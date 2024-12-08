@@ -79,109 +79,76 @@
             <!-- Page Sidebar Ends-->
 
             <!-- index body start -->
+
             <div class="page-body">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="card card-table">
+                        <div class="card-body">
+                            <?php
+                            if (isset($_SESSION['message'])) {
+                                echo "<h4 style=color:red>" . $_SESSION['message'] . "</h4>";
+                                unset($_SESSION['message']);
+                            }
+                            if (isset($_SESSION['error'])) {
+                                echo "<h4 style=color:red>" . $_SESSION['error'] . "</h4>";
+                                unset($_SESSION['error']);
+                            }
 
-                        <div class="card card-table">
-                            <div class="card-body">
-                                <?php if (isset($_SESSION['message'])) {
-                                    echo "<h4 style=color:red>" . $_SESSION['message'] . "</h4>";
-                                    unset($_SESSION['message']);
-                                }
-                                ?>
-                                <div class="title-header option-title d-sm-flex d-block">
-                                    <h5>Danh sách user</h5>
-                                    <div class="right-options">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0)">import</a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">Export</a>
-                                            </li>
-                                            <li>
-                                                <a class="btn btn-solid" href="<?= BASE_URL ?>?role=admin&act=add-user">Add Product</a>
-                                            </li>
-                                        </ul>
+                            ?>  
+                            <h5>Chỉnh sửa Product</h5>
+                            <form method="POST" action="<?= BASE_URL ?>?role=admin&act=update-post-product&id=<?= $_GET['id'] ?>" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label>Tên sản phẩm:</label>
+                                    <input type="text" name="name" class="form-control" id="name" value="<?= $product->name ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Giá:</label>
+                                    <input type="number" name="price" class="form-control" id="price" value="<?= $product->price ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Giá khuyến mãi:</label>
+                                    <input type="number" name="pricesale" class="form-control " id="price_sale" value="<?= $product->price_sale ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Danh mục:</label>
+                                    <select name="category" id="category">
+                                        <?php foreach ($listCategory as $key => $value): ?>
+                                            <option value="<?= $value->id ?>"
+                                                <?php if($product->category_id == $value->id): ?> selected
+                                                <?php endif ?>
+                                            ><?= $value->name ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Tồn kho:</label>
+                                    <input type="number" name="stock" class="form-control" id="stock" value="<?= $product->stock ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Mô tả:</label>
+                                    <textarea name="description" class="form-control" id="description">
+                                    <?= $product->description ?>
+                                    </textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Hình ảnh:</label>
+                                    <img src="<?= $product->image_main?>" alt="" width="50px">
+                                    <input type="file" name="image_main" class="form-control" id="image_main" accept="image/*">
+                                </div>
+                                <div class="mb-5">
+                                    <h4>list image</h4>
+                                    <button class="btn-sm btn btn-primary" id="btnAddImage">Add Image</button>
+                                    <div class="block-image">
+
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="table-responsive">
-                                        <div id="table_id_wrapper" class="dataTables_wrapper no-footer">
-                                            <div id="table_id_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="table_id"></label></div>
-                                            <table class="table all-package theme-table table-product dataTable no-footer" id="table_id">
-
-
-                                                <thead>
-                                                    <tr>
-
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">STT</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Name</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Image</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Email</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 170px;">Action</th>
-
-                                                    </tr>
-                                                </thead>
-                                                <?php foreach ($listUser as $key => $value) : ?>
-                                                    <tbody>
-
-
-                                                        <tr class="odd">
-
-                                                            <td><?= $key + 1 ?></td>
-                                                            <td><?= $value->name ?></td>
-                                                            <td>
-                                                                <img src="<?= $value->image ?>" width="50px" alt="">
-                                                            </td>
-                                                            <td><?= $value->email ?></td>
-
-                                                            <td>
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-user&id=<?= $value->id ?>">
-                                                                            <i class="ri-eye-line"></i>
-                                                                        </a>
-                                                                    </li>
-
-                                                                    <li>
-                                                                        <a href="javascript:void(0)">
-                                                                            <a href="<?= BASE_URL ?>?role=admin&act=update-user&id=<?= $value->id ?>">
-                                                                                <i class="ri-pencil-line"></i>
-                                                                            </a>
-                                                                        </a>
-                                                                    </li>
-
-                                                                    <li>
-                                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-user&id=<?= $value->id ?>">
-                                                                                <i class="ri-delete-bin-line"></i>
-                                                                            </a>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-
-
-                                                    </tbody>
-                                                <?php endforeach; ?>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <button type="submit" class="btn btn-warning">Chỉnh sửa</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- Container-fluid Ends-->
-
-                <!-- footer start-->
-                <?php include 'app/views/Admin/layout/footer.php' ?>
-                <!-- footer End-->
-
             </div>
+
             <!-- index body end -->
 
         </div>
@@ -256,6 +223,45 @@
 
     <!-- Theme js -->
     <script src="assets/Admin/js/script.js"></script>
+
+    <script>
+        $(".block-image").empty();
+
+        <?php if(count($listProductImage) > 0): ?>
+            let UI = "";
+                <?php foreach($listProductImage as $key => $value): ?>
+                    UI=  `
+                <div class="mt-4 mb-4">
+                        <span>Hình ảnh</span> <br>
+                        <img src="<?= $value->image ?>" alt="" width="50px">
+                        <div class="d-flex">
+                            <input type="file" class="form-control" name="image[]" accept="image/*">
+                            <button class="btn-sm btn btn-danger btn-delete">xoa</button>
+                        </div>
+                </div>
+            `;
+            $(".block-image").append(UI)
+                    <?php endforeach ?>
+            <?php endif ?>
+        $("#btnAddImage").click(function(e) {
+            e.preventDefault();
+
+            let UI = `
+                <div class="mt-4 mb-4">
+                        <span>Hình ảnh</span>
+                        <div class="d-flex">
+                            <input type="file" class="form-control" name="image[]" accept="image/*">
+                            <button class="btn-sm btn btn-danger btn-delete">xoa</button>
+                        </div>
+                </div>
+            `;
+            $(".block-image").append(UI)
+        })
+
+        $(".block-image").on('click', '.btn-delete', function() {
+            $(this).parent().parent().remove()
+        })
+    </script>
 </body>
 
 

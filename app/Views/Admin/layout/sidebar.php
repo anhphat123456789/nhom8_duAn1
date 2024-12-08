@@ -43,11 +43,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="products.html">Products</a>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=all-product">Products</a>
                                         </li>
 
                                         <li>
-                                            <a href="add-new-product.html">Add New Products</a>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=add-product">Add New Products</a>
                                         </li>
                                     </ul>
                                 </li>

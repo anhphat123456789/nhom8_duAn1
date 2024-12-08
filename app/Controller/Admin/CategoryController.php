@@ -5,11 +5,11 @@ class CategoryController extends ControllerAdmin {
         $categoryModel = new CategoryModel();
         $listCategory = $categoryModel->allCategory();
 
-        include 'app/Views/Admin/categories.php';
+        include 'app/Views/Admin/Category-admin/categories.php';
     }
     public function addCategory() {
 
-        include 'app/Views/Admin/add-category.php';
+        include 'app/Views/Admin/Category-admin/add-category.php';
     }
 
     public function addPostCategory() {
@@ -73,7 +73,7 @@ class CategoryController extends ControllerAdmin {
 
         $categoryModel = new CategoryModel();
         $category = $categoryModel->getCategoryByID();
-        include 'app/Views/Admin/update-category.php';
+        include 'app/Views/Admin/Category-admin/update-category.php';
     }
 
     public function updatePostCategory() {
@@ -114,6 +114,6 @@ class CategoryController extends ControllerAdmin {
 
         $categoryModel = new CategoryModel();
         $category = $categoryModel->getCategoryByID();
-        include 'app/Views/Admin/show-category.php';
+        include 'app/Views/Admin/Category-admin/show-category.php';
     }
 }
